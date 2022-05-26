@@ -1,6 +1,6 @@
-package com.company.client;
+package com.client;
 
-import com.company.remote.WhiteBoard;
+import com.remote.WhiteBoard;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;

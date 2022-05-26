@@ -1,4 +1,6 @@
-package com.company.server;
+package com.server;
+
+import com.remote.WhiteBoard;
 
 import java.rmi.RemoteException;
 
@@ -7,7 +9,7 @@ import java.rmi.RemoteException;
  * @Description TODO
  * @Author XiaoHan
  **/
-public class WhiteBoardService implements com.company.remote.WhiteBoard {
+public class WhiteBoardService implements WhiteBoard {
     @Override
     public String sayHi(String name) throws RemoteException {
         return "hihi, " + name;

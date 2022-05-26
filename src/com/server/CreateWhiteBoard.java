@@ -1,6 +1,6 @@
-package com.company.server;
+package com.server;
 
-import com.company.remote.WhiteBoard;
+import com.remote.WhiteBoard;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
