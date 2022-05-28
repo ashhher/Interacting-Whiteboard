@@ -1,6 +1,9 @@
-package com.client;
+package com;
 
-import com.remote.WhiteBoard;
+import com.client.ClientGUI;
+import com.client.ClientImpl;
+import com.remote.Client;
+import com.remote.Server;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -12,13 +15,16 @@ import java.rmi.registry.Registry;
  * @Description TODO
  * @Author XiaoHan
  **/
-public class JoinWhiteBoard {
-    private static WhiteBoard whiteBoard;
+public class JoinWhiteBoard1 {
 
     public static void main(String[] args) throws RemoteException, NotBoundException {
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-        whiteBoard = (WhiteBoard) registry.lookup("WhiteBoard");
-        String msg = whiteBoard.sayHi("client");
-        System.out.println(msg);
+        Server server = (Server) registry.lookup("WhiteBoard");
+
+        ClientGUI gui = new ClientGUI(server, true);
+        Client client = new ClientImpl(gui);
+        server.registerClient("user2", client);
+
+        gui.init();
     }
 }
