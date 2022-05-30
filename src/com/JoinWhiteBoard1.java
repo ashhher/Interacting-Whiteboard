@@ -21,10 +21,9 @@ public class JoinWhiteBoard1 {
         Registry registry = LocateRegistry.getRegistry("localhost", 1099);
         Server server = (Server) registry.lookup("WhiteBoard");
 
-        ClientGUI gui = new ClientGUI(server, true);
-        Client client = new ClientImpl(gui);
-        server.registerClient("user2", client);
-
-        gui.init();
+        String username = "user2";
+        ClientGUI gui = new ClientGUI(server, username,true);
+        Client client = new ClientImpl(gui, username);
+        server.registerUser(client, false);
     }
 }
